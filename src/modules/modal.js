@@ -8,6 +8,7 @@ const modal = () => {
     let count = -10;
     let animationId;
     modalContent.style.top = '0';
+    modalContent.style.opacity = '0';
 
     const moveModalContent = () => {
       count++;
@@ -18,6 +19,7 @@ const modal = () => {
         cancelAnimationFrame(animationId);
       } else {
         modalContent.style.top = count + '%';
+        modalContent.style.opacity = (count + 10) * 0.05;
       }
     };
 
