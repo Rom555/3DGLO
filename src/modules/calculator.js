@@ -1,6 +1,5 @@
 const calculator = () => {
   const calc = document.querySelector('.calc-block');
-
   const inputsNumber = calc.querySelectorAll('input.calc-item');
 
   inputsNumber.forEach((input) => {

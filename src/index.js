@@ -5,7 +5,7 @@ import scroll from './modules/scroll';
 import calc from './modules/calculator';
 import validation from './modules/validation';
 
-timer('26 february 2022');
+timer('28 february 2022');
 menu();
 modal();
 scroll();
