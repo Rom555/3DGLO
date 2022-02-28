@@ -6,8 +6,8 @@ const scroll = () => {
   links.forEach((link) => {
     const target = link.attributes.href.value;
 
-    link.addEventListener('click', () => {
-      event.preventDefault();
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
 
       document.querySelector(target).scrollIntoView({
         behavior: 'smooth',

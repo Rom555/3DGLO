@@ -4,10 +4,12 @@ import modal from './modules/modal';
 import scroll from './modules/scroll';
 import calc from './modules/calculator';
 import validation from './modules/validation';
+import tabs from './modules/tabs';
 
-timer('28 february 2022');
+timer('10 march 2022');
 menu();
 modal();
 scroll();
 calc();
 validation();
+tabs();
