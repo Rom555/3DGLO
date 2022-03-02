@@ -11,7 +11,7 @@ const validation = () => {
     value = value.replace(/\-{2,}/g, '-');
     value = value.replace(/\s{2,}/g, ' ');
 
-    if (callback) {
+    if (value && callback) {
       value = callback(value);
     }
 
@@ -19,13 +19,9 @@ const validation = () => {
   };
 
   const capitalize = (str) => {
-    if (str) {
-      str = str.replace(/([а-я])([а-я]*)/g, (str, $1, $2) => {
-        return $1.toUpperCase() + $2.toLowerCase();
-      });
-    }
-
-    return str;
+    return str.replace(/([а-я])([а-я]*)/g, (str, $1, $2) => {
+      return $1.toUpperCase() + $2.toLowerCase();
+    });
   };
 
   forms.forEach((form) => {
