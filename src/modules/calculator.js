@@ -6,6 +6,20 @@ const calculator = (price) => {
   const calcDay = calcBlock.querySelector('.calc-day');
   const total = calcBlock.querySelector('#total');
 
+  let interval;
+  let count;
+
+  const changetTotal = (num) => {
+    count = 0;
+    let step = num / (price / 10);
+
+    interval = setInterval(() => {
+      total.textContent = count;
+      count += step;
+      if (count > num) clearInterval(interval);
+    }, 30);
+  };
+
   const countCalc = () => {
     const calcTypeValue = +calcType.options[calcType.selectedIndex].value;
     const calcSquareValue = +calcSquare.value;
@@ -13,6 +27,8 @@ const calculator = (price) => {
     let totalValue = 0;
     let calcCountValue = 1;
     let calcDayValue = 1;
+
+    if (interval) clearInterval(interval);
 
     if (!calcTypeValue || !calcSquareValue) {
       total.textContent = 0;
@@ -32,7 +48,7 @@ const calculator = (price) => {
     totalValue =
       price * calcTypeValue * calcSquareValue * calcCountValue * calcDayValue;
 
-    total.textContent = totalValue;
+    changetTotal(totalValue);
   };
 
   calcBlock.addEventListener('input', (e) => {
@@ -44,7 +60,10 @@ const calculator = (price) => {
       e.target === calcCount ||
       e.target === calcDay
     ) {
-      e.target.value = e.target.value.replace(/\D+/, '');
+      if (/\D+/g.test(e.target.value)) {
+        e.target.value = e.target.value.replace(/\D+/g, '');
+        return;
+      }
       countCalc();
     }
   });
