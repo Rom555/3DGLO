@@ -11,7 +11,7 @@ timer('10 march 2022');
 menu();
 modal();
 scroll();
-calc();
 validation();
 tabs();
 slider('portfolio-content', 'portfolio-item', 'portfolio-dots');
+calc(100);
