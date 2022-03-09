@@ -6,32 +6,6 @@ const modal = () => {
   const modalContent = modal.querySelector('.popup-content');
   const modalForm = modal.querySelector('form');
 
-  const modalContentAnimation = () => {
-    let count = 0;
-    let animationId;
-
-    modal.style.width = '0';
-    modalContent.style.top = '0';
-    modalContent.style.opacity = '0';
-
-    const moveModalContent = () => {
-      count++;
-
-      animationId = requestAnimationFrame(moveModalContent);
-
-      if (count > 20) {
-        cancelAnimationFrame(animationId);
-      } else {
-        modal.style.width = count * 5 + '%';
-        modalContent.style.top = count - 10 + '%';
-        modalContent.style.opacity = count * 0.05;
-        modalForm.style.top = 500 - count * 25 + 'px';
-      }
-    };
-
-    animationId = requestAnimationFrame(moveModalContent);
-  };
-
   modal.addEventListener('click', (e) => {
     if (
       !e.target.closest('.popup-content') ||

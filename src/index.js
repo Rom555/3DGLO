@@ -7,7 +7,7 @@ import validation from './modules/validation';
 import tabs from './modules/tabs';
 import slider from './modules/slider';
 
-timer('10 march 2022');
+timer('20 march 2022');
 menu();
 modal();
 scroll();
