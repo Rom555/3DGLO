@@ -19,7 +19,7 @@ const validation = () => {
   };
 
   const capitalize = (str) => {
-    return str.replace(/([а-я])([а-я]*)/g, (str, $1, $2) => {
+    return str.replace(/([а-я])([а-я]*)/gi, (str, $1, $2) => {
       return $1.toUpperCase() + $2.toLowerCase();
     });
   };
@@ -47,7 +47,7 @@ const validation = () => {
     });
 
     telInput.addEventListener('blur', () => {
-      valueChange(telInput, /[^\d\(\)\-]/g);
+      valueChange(telInput, /[^\d\(\)\-\+]/g);
     });
   });
 };
