@@ -12,13 +12,17 @@ const sendForm = ({ formId, someElem = [] }) => {
     list.forEach((input) => {
       switch (true) {
         case input.name === 'user_phone':
-          success = !/[^\d\(\)\-]/gi.test(input.value);
+          if (/[^\d\(\)\-\+]/gi.test(input.value) || !input.value)
+            success = false;
+          break;
+        case input.name === 'user_email':
+          if (!input.value) success = false;
           break;
         case input.name === 'user_name':
-          success = !/[^а-я\s]/gi.test(input.value);
+          if (/[^а-я\s]/gi.test(input.value) || !input.value) success = false;
           break;
         case input.name === 'user_message':
-          success = !/[^а-я\s\d\.\,\?\!\;\:]/gi.test(input.value);
+          if (/[^а-я\s\d\.\,\?\!\;\:]/gi.test(input.value)) success = false;
           break;
       }
     });
