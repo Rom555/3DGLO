@@ -38,7 +38,7 @@ const validation = () => {
 
     if (messageInput) {
       messageInput.addEventListener('blur', () => {
-        valueChange(messageInput, /[^а-я\-\s]/gi);
+        valueChange(messageInput, /[^а-я\-\s\d\.\,\?\!\;\:]/gi);
       });
     }
 

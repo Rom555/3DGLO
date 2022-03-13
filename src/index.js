@@ -6,6 +6,7 @@ import calc from './modules/calculator';
 import validation from './modules/validation';
 import tabs from './modules/tabs';
 import slider from './modules/slider';
+import sendForm from './modules/sendForm';
 
 timer('20 march 2022');
 menu();
@@ -15,3 +16,24 @@ validation();
 tabs();
 slider('portfolio-content', 'portfolio-item', 'portfolio-dots');
 calc(100);
+sendForm({
+  formId: 'form1',
+  someElem: [
+    {
+      type: 'block',
+      id: 'total',
+    },
+  ],
+});
+sendForm({
+  formId: 'form2',
+  someElem: [
+    {
+      type: 'block',
+      id: 'total',
+    },
+  ],
+});
+sendForm({
+  formId: 'form3',
+});
