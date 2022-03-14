@@ -33,6 +33,8 @@ const sendForm = ({ formId, someElem = [] }) => {
   const validateErrorText = 'Неправильно заполнены поля!';
   const successText = 'Спасибо! Наш менеджер с Вами свяжется.';
 
+  let timeout;
+
   const validate = (list) => {
     let success = true;
 
@@ -72,6 +74,8 @@ const sendForm = ({ formId, someElem = [] }) => {
     const formData = new FormData(form);
     const formBody = {};
 
+    clearTimeout(timeout);
+
     statusBlock.style.color = '#fff';
 
     form.append(statusBlock);
@@ -104,6 +108,8 @@ const sendForm = ({ formId, someElem = [] }) => {
         formElements.forEach((input) => {
           input.value = '';
         });
+
+        timeout = setTimeout(() => (statusBlock.textContent = ''), 5000);
       })
       .catch((error) => {
         statusBlock.textContent = errorText;
